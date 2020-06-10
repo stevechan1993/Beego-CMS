@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="317fc408-bbd4-4298-9050-8941df10ec1b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.14.3/libexec" />
+  <component name="ProjectId" id="1d7hHnMsj0Kf1VoB7gdyPJzw0AG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="317fc408-bbd4-4298-9050-8941df10ec1b" name="Default Changelist" comment="" />
+      <created>1591781954130</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591781954130</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="560" y="205" key="#GOPATH" timestamp="1591783414461">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="560" y="205" key="#GOPATH/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1591783414461" />
+    <state x="560" y="205" key="#GOROOT" timestamp="1591782783234">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="560" y="205" key="#GOROOT/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1591782783234" />
+    <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591782000485">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1591782000485" />
+    <state x="697" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591783737526">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="697" y="350" key="#com.intellij.fileTypes.FileTypeChooser/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1591783737526" />
+    <state x="469" y="179" key="SettingsEditor" timestamp="1591783375875">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="469" y="179" key="SettingsEditor/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1591783375875" />
+    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1591782650433">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1591782650433" />
+  </component>
+</project>
