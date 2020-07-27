@@ -1,12 +1,12 @@
 package test
 
 import (
+	_ "github.com/stevechan/Beego-Blog/routers"
 	"net/http"
 	"net/http/httptest"
-	"testing"
-	"runtime"
 	"path/filepath"
-	_ "beego-demo/routers"
+	"runtime"
+	"testing"
 
 	"github.com/astaxie/beego"
 	. "github.com/smartystreets/goconvey/convey"

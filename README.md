@@ -1,2 +1,2 @@
-# beego-demo
-This is a Beego Demo
+# Beego-Blog
+This is a Beego Blog System
