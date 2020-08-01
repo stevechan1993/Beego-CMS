@@ -1,2 +1,2 @@
 # Beego-Blog
-This is a Beego Blog System
+A Beego Blog Project
