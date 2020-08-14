@@ -1,2 +1,2 @@
-# Beego-Blog
-A Beego Blog Project
+# Beego-CMS
+A Beego CMS Project
