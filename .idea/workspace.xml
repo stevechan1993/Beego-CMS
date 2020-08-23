@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="317fc408-bbd4-4298-9050-8941df10ec1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/util/util.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/model.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +74,10 @@
     <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RunManager">
-    <configuration name="go build github.com/stevechan/Beego-CMS" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build Beego-CMS/" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="beego-demo" />
       <working_directory value="$PROJECT_DIR$/" />
-      <kind value="PACKAGE" />
+      <kind value="DIRECTORY" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="github.com/stevechan/Beego-CMS" />
       <directory value="$PROJECT_DIR$/" />
@@ -67,7 +85,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build github.com/stevechan/Beego-CMS" />
+        <item itemvalue="Go Build.go build Beego-CMS/" />
       </list>
     </recent_temporary>
   </component>
@@ -84,6 +102,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <environment>
@@ -107,32 +136,49 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="205" key="#Go_Modules_(vgo)/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1591840303989" />
-    <state x="424" y="208" width="1071" height="701" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598174374732">
-      <screen x="0" y="23" width="1920" height="991" />
+    <state x="424" y="208" width="1071" height="727" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598176887046">
+      <screen x="0" y="23" width="1920" height="992" />
     </state>
     <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1591782000485" />
     <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.180.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1595842672985" />
     <state x="424" y="208" width="1071" height="701" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.991@0.23.1920.991" timestamp="1598174374732" />
+    <state x="424" y="208" width="1071" height="727" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.992@0.23.1920.992" timestamp="1598176887046" />
     <state x="697" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592132628344">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="697" y="350" key="#com.intellij.fileTypes.FileTypeChooser/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1592132628344" />
-    <state width="1878" height="255" key="GridCell.Tab.0.bottom" timestamp="1598174441460">
+    <state width="1878" height="376" key="GridCell.Tab.0.bottom" timestamp="1598174550207">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="255" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1598174441460" />
-    <state width="1878" height="255" key="GridCell.Tab.0.center" timestamp="1598174441458">
+    <state width="1878" height="376" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550207" />
+    <state width="1878" height="376" key="GridCell.Tab.0.center" timestamp="1598174550205">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="255" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1598174441458" />
-    <state width="1878" height="255" key="GridCell.Tab.0.left" timestamp="1598174441457">
+    <state width="1878" height="376" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550205" />
+    <state width="1878" height="376" key="GridCell.Tab.0.left" timestamp="1598174550204">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="255" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1598174441457" />
-    <state width="1878" height="255" key="GridCell.Tab.0.right" timestamp="1598174441459">
+    <state width="1878" height="376" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550204" />
+    <state width="1878" height="376" key="GridCell.Tab.0.right" timestamp="1598174550206">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="255" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1598174441459" />
+    <state width="1878" height="376" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550206" />
+    <state width="1878" height="376" key="GridCell.Tab.1.bottom" timestamp="1598174550210">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550210" />
+    <state width="1878" height="376" key="GridCell.Tab.1.center" timestamp="1598174550208">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550208" />
+    <state width="1878" height="376" key="GridCell.Tab.1.left" timestamp="1598174550208">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550208" />
+    <state width="1878" height="376" key="GridCell.Tab.1.right" timestamp="1598174550209">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550209" />
     <state x="469" y="179" key="SettingsEditor" timestamp="1595842602089">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
