@@ -34,3 +34,61 @@ func init() {
 
 	// 创建表
 }
+
+// 管理员权限等级及级别名称
+type Permission struct {
+	Id		int		                               // 权限登记id
+	Level	string	`json:"level" orm:"size(30)"`  // 权限级别
+	Name	string	`json:"name" orm:"size(20)"`   // 权限名称
+	Admin	[]*Admin `orm:rel(m2m)`                // orm映射 一个权限可以被多个管理员所拥有
+}
+
+// 地区城市表
+type City struct {
+
+}
+
+// 管理员表
+type Admin struct {
+
+}
+
+// 用户信息表
+type User struct {
+
+}
+
+// 食品种类表
+type FoodCategory struct {
+
+}
+
+// 食品表
+type Food struct {
+
+}
+
+// 商家店铺表
+type Shop struct {
+
+}
+
+// 订单状态表
+type OrderStatus struct {
+
+}
+
+// 商家所支持的服务表
+type SupportService struct {
+
+}
+
+// 用户订单表
+type UserOrder struct {
+
+}
+
+// 订单地址表
+type Address struct {
+
+}
