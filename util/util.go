@@ -38,3 +38,81 @@ func GetRedis() (adapter cache.Cache, err error) {
 /**
  * 判断当前path是否存在的工具方法
  */
+func IsExists(path string) (bool, error) {
+	_, err := os.Stat(path)
+	if err == nil {
+		return true, nil
+	}
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	return false, err
+}
+
+/**
+ * json格式数据转换为实体对象
+ */
+func JsonToEntity(data []byte, object interface{}) error {
+	if len(data) <= 0 {
+		return nil
+	}
+	return json.Unmarshal(data, object)
+}
+
+/**
+ * 向Map中存放数据
+ */
+func PutParamToMap(mapp map[string]interface{}, key string, value interface{}) (map[string]interface{}) {
+	mapp[key] = value
+	return mapp
+}
+
+/**
+ * 根据开发模式进行判断是否输出日志
+ */
+func LogInfo(v ...interface{}) {
+	runMode := beego.AppConfig.String("runmode")
+	if runMode == "dev" {
+		beego.Info(v)
+	}
+}
+
+/**
+ * 根据开发模式判断是否输出错误
+ */
+func LogError(v ...interface{}) {
+	runMode := beego.AppConfig.String("runmode")
+	if runMode == "dev" {
+		beego.Error(v)
+	}
+}
+
+/**
+ * 警告
+ */
+func LogWarn(v ...interface{}) {
+	runMode := beego.AppConfig.String("runmode")
+	if runMode == "dev" {
+		beego.Warn(v)
+	}
+}
+
+/**
+ * 调试
+ */
+func LogDebug(v ...interface{}) {
+	runMode := beego.AppConfig.String("runmode")
+	if runMode == "dev" {
+		beego.Debug(v)
+	}
+}
+
+/**
+ * 提示
+ */
+func LogNotice(v ...interface{}) {
+	runMode := beego.AppConfig.String("runmode")
+	if runMode == "dev" {
+		beego.Notice(v)
+	}
+}
