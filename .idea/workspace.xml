@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="317fc408-bbd4-4298-9050-8941df10ec1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/model.go" afterDir="false" />
     </list>
@@ -178,13 +179,13 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="376" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1598174550209" />
-    <state x="469" y="179" key="SettingsEditor" timestamp="1598256484577">
+    <state x="469" y="179" key="SettingsEditor" timestamp="1598418467840">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="469" y="179" key="SettingsEditor/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1592132620047" />
     <state x="469" y="179" key="SettingsEditor/-1440.180.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1595842602089" />
     <state x="469" y="187" key="SettingsEditor/-1440.23.1440.877/0.23.1920.988@0.23.1920.988" timestamp="1591840483134" />
-    <state x="469" y="179" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1598256484577" />
+    <state x="469" y="179" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1598418467840" />
     <state x="625" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1598404365496">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

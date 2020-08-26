@@ -89,13 +89,30 @@ type User struct {
 
 // 食品种类表
 type FoodCategory struct {
-
+	Id 					int 	`json:"id"`    							// 食品id
+	CategoryName 		string 	`json:"name" orm:"size(32)"`    		// 食品种类名称
+	CategoryDesc 		string 	`json:"description" orm:"size(200)"` 	// 食品种类描述
+	Level 				int 	`json:"level"` 							// 食品种类层级
+	ParentCategoryId 	int 	`json:"parent_category_id"`   			// 父一级的类型id
+	Restaurant 			*Shop 	`json:"restaurant_id" orm:"rel(fk)"` 	// 该食品种类所属的商铺id
+	Food 				[]*Food `orm:"reverse(many)"`  					// 食品
 }
 
 // 食品表
 type Food struct {
-
-}
+	Id 			int 			`json:"item_id"`   		// 食品id
+	Name 		string 			`json:"name"`  			// 食品名称
+	Description string 			`json:"description"`   	// 食品描述
+	Rating 		int 			`json:"rating"`  		// 食品评分
+	MonthSales 	int 			`json:"month_sales"`  	// 月销量
+	ImagePath 	string 			`json:"image_path"` 	// 食品图片地址
+	Activity 	string 			`json:"activity"`		// 食品活动
+	Attributes 	string 			`json:"attributes"` 	// 食品特点
+	Specs 		string 			`json:"specs"`  		// 食品规格
+	Category 	*FoodCategory 	`orm:"rel(fk)"`  		// 食品种类
+	Restaurant 	*Shop 			`orm:"rel(fk)"`  		// 食品店铺信息
+	DelFlag 	int 			`json:"del_flag"`  		// 是否已经被删除 0表示未删除 1表示被删除
+ }
 
 // 商家店铺表
 type Shop struct {
@@ -104,12 +121,20 @@ type Shop struct {
 
 // 订单状态表
 type OrderStatus struct {
-
+	Id 			int
+	StatusId 	int						  				// 订单状态编号
+	StatusDesc 	string 			`orm:"size(100)"`   	// 订单状态描述
+	UserOrder 	[]*UserOrder 	`orm:"reverse(many)"`  	// 一个订单状态可以对应多个订单
 }
 
 // 商家所支持的服务表
 type SupportService struct {
-
+	Id 			int 						// 编号
+	Name 		string 						// 名称
+	IconName 	string 						// 前端设置的图标内容
+	IconColor 	string 						// 前端设置的图标颜色
+	Description string 						// 服务描述
+	Shop 		[]*Shop `orm:"rel(m2m)"`  	// orm映射 一个活动服务可以被多个商家参加
 }
 
 // 用户订单表
