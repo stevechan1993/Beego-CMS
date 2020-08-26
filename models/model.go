@@ -11,7 +11,11 @@ func init() {
 	driverName := beego.AppConfig.String("driverName")
 
 	// 注册数据库驱动
-	orm.RegisterDriver(driverName, orm.DRMySQL)
+	regError := orm.RegisterDriver(driverName, orm.DRMySQL)
+	if regError != nil {
+		util.LogError("注册驱动出错")
+		return
+	}
 
 	// 数据库连接
 	user := beego.AppConfig.String("mysqluser")
@@ -70,7 +74,17 @@ type Admin struct {
 
 // 用户信息表
 type User struct {
-
+	Id 				int 			`json:"id"`   			// 用户编号id
+	UserName 		string  		`json:"username"`  		// 用户名称
+	RegisterTime 	string 			`json:"register_time"`  // 用户注册时间
+	Mobile 			string 			`json:"mobile"`  		// 用户手机号
+	IsActive 		int 			`json:"is_active"`   	// 用户是否激活
+	Balance 		int 			`json:"balance"`  		// 用户的账户余额
+	Avatar 			string 			`json:"avatar"`  		// 用户头像
+	City 			*City 			`orm:"rel(fk)"`  		// orm映射  用户所在城市 一对一关系 一个用户能有一个城市地区
+	UserOrder 		[]*UserOrder 	`orm:"reverse(many)"`  	// orm映射 用户订单 一个用户可以有多张订单，设置一对多关系
+	Pwd 			string 			`json:"password"`  		// 用户的账密码
+	DelFlag 		int 			`json:"del_flag"`  		// 是否被删除的标志字段 软删除
 }
 
 // 食品种类表
