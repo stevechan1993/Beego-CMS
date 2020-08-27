@@ -116,7 +116,34 @@ type Food struct {
 
 // 商家店铺表
 type Shop struct {
-
+	Id 							int 				`json:"item_id"`  							// 店铺id
+	Name 						string 				`json:"name"` 								// 店铺名称
+	Address 					string 				`json:"address"` 							// 店铺地址
+	Latitude 					float32 			`json:"latitude"` 							// 经度
+	Longitude 					float32 			`json:"longitude"`  						// 纬度
+	Description 				string 				`json:"description"` 						// 店铺简介
+	Phone 						int64 				`json:"phone"` 								// 店铺电话
+	PromotionInfo 				string 				`json:"promotion_info"` 					// 店铺标语
+	FloatDeliveryFee 			int 				`json:"float_delivery_fee"`  				// 配送费
+	FloatMinimumOrderAmount 	int 				`json:"float_minimum_order_amount"`  		// 起送价
+	IsPremium 					bool 				`json:"is_premium"` 						// 品牌保障
+	DeliveryMode 				bool 				`json:"delivery_mode"` 						// 配送方式
+	New 						bool 				`json:"new"`  								// 新开店铺
+	Bao 						bool 				`json:"bao"`  								// 外卖宝
+	Zhun 						bool 				`json:"zhun"` 								// 准时达
+	Piao 						bool 				`json:"piao"`  								// 开发票
+	StartTime 					string 				`json:"startTime"`  						// 营业开始时间
+	EndTime 					string 				`json:"endTime"`  							// 营业结束时间
+	ImagePath 					string 				`json:"image_path"`  						// 店铺头像
+	BusinessLicenseImage 		string 				`json:"business_license_image"` 			// 营业执照
+	CateringServiceLicenseImage string 				`json:"catering_service_license_image"`  	// 餐饮服务许可证
+	Category 					string 				`json:"category"` 							// 店铺类型
+	RecentOrderNum 				int 				`json:"recent_order_num"`  					// 最近一个月的销量
+	Rating 						int 				`json:"rating"`  							// 综合评分
+	Activities 					[]*SupportService 	`json:"activities" orm:"reverse(many)"` 	// 一个商家对应多家服务
+	UserOrder 					[]*UserOrder 		`json:"user_order" orm:"reverse(many)"` 	// 设置一对多关系： 一个店铺，可能会有多个订单
+	Foods 						[]*Food 			`orm:"reversed(many)"` 						// 设置一对多关系的反向关系
+	Dele 						int 				`json:"dele"` 								// 删除标志 1表示已经删除 0表示未删除
 }
 
 // 订单状态表
@@ -139,10 +166,23 @@ type SupportService struct {
 
 // 用户订单表
 type UserOrder struct {
-
+	Id 			int 			`json:"id"`  		// 用户订单编号id
+	SumMoney 	int 			`orm:"default(0)"` 	// 用户订单总价格
+	Time 		string 			`json:"time"`  		// 订单创建时间
+	OrderTime 	uint64 			`json:"order_time"` // 订单创建时间
+	OrderStatus *OrderStatus 	`orm:"rel(fk)"`  	// 设置一对一的关系，一张订单只能有一个状态
+	User 		*User 			`orm:"rel(fk)"`  	// 一张订单只能对应一个用户
+	Shop 		*Shop 			`orm:"rel(fk)"`  	// 设置一对一的关系： 一张订单只能有一个商家
+	Address 	*Address 		`orm:"rel(fk)"`  	// 用户订单地址
+	DelFlag 	int 			`json:"del_flag"` 	// 删除标志，软删除
 }
 
 // 订单地址表
 type Address struct {
-
+	Id 				int 			`json:"id"`  			// 订单地址id
+	Address 		string 			`json:"address"`  		// 地址
+	Phone 			string 			`json:"phone"`  		// 联系人手机号
+	AddressDetail 	string 			`json:"address_detail"` // 地址详情
+	IsValid 		int 			`json:"is_valid"`
+	UserOrder 		[]*UserOrder 	`orm:"reverse(many)"`
 }
