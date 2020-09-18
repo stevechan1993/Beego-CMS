@@ -56,10 +56,10 @@ const (
 	RESPMSG_ERROR_PICTURESIZE = "ERROR_PICTURESIZE"
 
 	//城市基础表
-	RESPMSG_ERROR_CITYLIST = "ERRROR_CITYLIST"
+	RESPMSG_ERROR_CITYLIST = "ERROR_CITYLIST"
 
 	//未登陆
-	EEROR_UNLOGIN = "ERROR_UNLOGIN"
+	ERROR_UNLOGIN = "ERROR_UNLOGIN"
 
 	RECODE_UNKNOWERR = "8000"
 )
@@ -68,7 +68,7 @@ const (
 var recodeText = map[string]string {
 	RESPMSG_OK:    "成功",
 	RESPMSG_FAIL:  "失败",
-	EEROR_UNLOGIN: "未登陆无操作权限，请先登陆", //未登陆 没有权限
+	ERROR_UNLOGIN: "未登陆无操作权限，请先登陆", //未登陆 没有权限
 
 	//管理员
 	RESPMSG_SUCCESSLOGIN:    "管理员登陆成功",
