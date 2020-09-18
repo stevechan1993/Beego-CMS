@@ -3,13 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
+	"github.com/stevechan/Beego-CMS/entity"
 	"github.com/stevechan/Beego-CMS/models"
 	"github.com/stevechan/Beego-CMS/util"
-	//"github.com/stevechan/Beego-CMS/entity"
-	//"github.com/astaxie/beego/orm"
-	//"strings"
-	//"math/rand"
-	//"time"
 )
 
 type AdminController struct {
@@ -26,6 +23,40 @@ const (
  */
 func (this *AdminController) AdminLogin() {
 
+	util.LogInfo("管理员登录")
+
+	reJson := make(map[string]interface{})
+	this.Data["json"] = reJson
+	defer this.ServeJSON()
+
+	// 获取请求数据
+	var loginEntity entity.AdminLoginEntity
+	util.JsonToEntity(this.Ctx.Input.RequestBody, &loginEntity)
+
+	// 查询结果变量
+	var admin models.Admin
+
+	// 实例化orm对象
+	om := orm.NewOrm()
+
+	// select * from admin where user_name = ? and pwd = ? values root, 1234
+	om.QueryTable(ADMINTABLENAME).Filter("user_name", loginEntity.User_name).Filter("pwd", loginEntity.Password).One(&admin)
+
+	// 管理员成功登录
+	if (admin.Id > 0) {
+
+		userByte, _ := json.Marshal(admin)
+
+		// 设置session
+		this.SetSession(ADMIN, userByte)
+
+		reJson["status"] = util.RECODE_OK
+		reJson["success"] = util.Recode2Text(util.RESPMSG_SUCCESSLOGIN)
+		return
+	}
+
+	reJson["status"] = util.RECODE_FAIL
+	reJson["message"] = util.Recode2Text(util.RESPMSG_FAILURELOGIN)
 }
 
 /**
