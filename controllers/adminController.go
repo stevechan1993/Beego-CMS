@@ -70,15 +70,22 @@ func (this *AdminController) GetAdminInfo() {
 	this.Data["json"] = reJson
 	defer this.ServeJSON()
 
+	// 从session中获取信息
 	userByte := this.GetSession(ADMIN)
+
+	// 判断session是否为空
 	if userByte == nil {
 		reJson["status"] = util.RECODE_UNLOGIN
 		reJson["type"] = util.ERROR_UNLOGIN
 		reJson["message"] = util.Recode2Text(util.ERROR_UNLOGIN)
 		return
 	}
+
 	var admin models.Admin
+
 	err := json.Unmarshal(userByte.([]byte), &admin)
+
+	// 失败
 	if err != nil {
 		util.LogInfo("获取管理员信息失败")
 		reJson["status"] = util.RECODE_FAIL
@@ -86,6 +93,8 @@ func (this *AdminController) GetAdminInfo() {
 		reJson["message"] = util.Recode2Text(util.RESPMSG_ERRORSESSION)
 		return
 	}
+
+	// 成功
 	if (admin.Id > 0) {
 		util.LogInfo("获取管理员信息成功")
 		reJson["status"] = util.RECODE_OK
@@ -117,8 +126,33 @@ func (this *AdminController) SignOut() {
  */
 func (this *AdminController) GetAdminCount() {
 
+	util.LogInfo("获取管理员总数")
+
+	reJson := make(map[string]interface{})
+	this.Data["json"] = reJson
+	defer this.ServeJSON()
+
+	// 判断是否有权限
+	if !this.IsLogin() {
+		reJson["status"] = util.RECODE_UNLOGIN
+		reJson["type"] = util.ERROR_UNLOGIN
+		reJson["messae"] = util.Recode2Text(util.ERROR_UNLOGIN)
+		return
+	}
+
+	om := orm.NewOrm()
+	adminCount, err := om.QueryTable(ADMINTABLENAME).Filter("status", 0).Count()
+	if err != nil {
+		reJson["status"] = util.RECODE_FAIL
+		reJson["message"] = util.Recode2Text(util.RESPMSG_ERRORADMINCOUNT)
+		reJson["count"] = 0
+	} else {
+		reJson["status"] = util.RECODE_OK
+		reJson["count"] = adminCount
+	}
 }
 
+// TODO
 /**
 返回管理员当日统计结果
  */
@@ -126,6 +160,7 @@ func (this *AdminController) GetAdminStatis() {
 
 }
 
+// TODO
 /**
 获取管理员列表
  */
@@ -138,7 +173,10 @@ func (this *AdminController) GetAdminList() {
 		reJSon["status"] = util.RECODE_UNLOGIN
 		reJSon["type"] = util.ERROR_UNLOGIN
 		reJSon["message"] = util.Recode2Text(util.ERROR_UNLOGIN)
+		return
 	}
+
+
 }
 
 /**
