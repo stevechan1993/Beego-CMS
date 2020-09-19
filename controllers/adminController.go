@@ -165,18 +165,41 @@ func (this *AdminController) GetAdminStatis() {
 获取管理员列表
  */
 func (this *AdminController) GetAdminList() {
+
 	util.LogInfo("管理员列表")
-	reJSon := make(map[string]interface{})
-	this.Data["json"] = reJSon
+
+	reJson := make(map[string]interface{})
+	this.Data["json"] = reJson
 	defer this.ServeJSON()
+
 	if !this.IsLogin() {
-		reJSon["status"] = util.RECODE_UNLOGIN
-		reJSon["type"] = util.ERROR_UNLOGIN
-		reJSon["message"] = util.Recode2Text(util.ERROR_UNLOGIN)
+		reJson["status"] = util.RECODE_UNLOGIN
+		reJson["type"] = util.ERROR_UNLOGIN
+		reJson["message"] = util.Recode2Text(util.ERROR_UNLOGIN)
 		return
 	}
 
+	var adminList []*models.Admin
+	om := orm.NewOrm()
+	offset, _ := this.GetInt("offset")
+	limit, _ := this.GetInt("limit")
+	_, err := om.QueryTable(ADMINTABLENAME).Filter("status", 0).Limit(limit, offset).All(&adminList)
 
+	if err != nil {
+		reJson["status"] = util.RECODE_FAIL
+		reJson["type"] = util.RESPMSG_ERROR_FOODLIST
+		reJson["message"] = util.Recode2Text(util.RESPMSG_ERROR_FOODLIST)
+		return
+	}
+
+	var respList []interface{}
+	for _, admin := range adminList {
+		om.LoadRelated(admin, "City")
+		respList = append(respList, admin.AdminToRespDesc())
+	}
+
+	reJson["status"] = util.RECODE_OK
+	reJson["data"] = respList
 }
 
 /**
