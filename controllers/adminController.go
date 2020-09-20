@@ -7,6 +7,9 @@ import (
 	"github.com/stevechan/Beego-CMS/entity"
 	"github.com/stevechan/Beego-CMS/models"
 	"github.com/stevechan/Beego-CMS/util"
+	"math/rand"
+	"strings"
+	"time"
 )
 
 type AdminController struct {
@@ -158,9 +161,71 @@ func (this *AdminController) GetAdminCount() {
  */
 func (this *AdminController) GetAdminStatis() {
 
+	util.LogInfo("获取管理员某个日期统计结果")
+
+	reJson := make(map[string]interface{})
+	this.Data["json"] = reJson
+	defer this.ServeJSON()
+
+	// 判断是否有权限的优化
+	if !this.IsLogin() {
+		reJson["status"] = util.RECODE_UNLOGIN
+		reJson["type"] = util.ERROR_UNLOGIN
+		reJson["message"] = util.Recode2Text(util.ERROR_UNLOGIN)
+		return
+	}
+
+	// 获取redis缓存实例
+	redisConn, err := util.GetRedis()
+	if err != nil {
+		reJson["status"] = util.RECODE_FAIL
+		reJson["count"] = 0
+		return
+	}
+
+	// 获取参数
+	paths := strings.Split(this.Ctx.Input.URL(), "/")
+
+	// 从redis中根据key值获取对应的数据缓存
+	statis := redisConn.Get("adminStatis" + paths[3])
+
+	if statis != nil {
+		var statisCount entity.StatisEntity
+		json.Unmarshal(statis.([]byte), &statisCount)
+		reJson["status"] = util.RECODE_OK
+		reJson["count"] = statisCount.StaticCount
+		return
+	}
+
+	om := orm.NewOrm()
+
+	// 仅做测试效果使用
+	adminCount, err := om.QueryTable(ADMINTABLENAME).Count()
+	if err != nil {
+		beego.Info(adminCount)
+		reJson["status"] = util.RECODE_FAIL
+		reJson["count"] = 0
+		return
+	}
+
+	todayStr := time.Now().Format("2006-01-02")
+	statisCount := &entity.StatisEntity{
+		StaticDate: "adminStatis" + paths[3],
+		StaticCount: rand.Intn(50),
+	}
+	bytes, _ := json.Marshal(statisCount)
+
+	// 分类存储到redis中
+	if todayStr == paths[3] {
+		redisConn.Put("adminStatis" + paths[3], bytes, 60 * time.Second)
+	} else {
+		redisConn.Put("adminStatis" + paths[3], bytes, 60 * 60 * 24 * time.Second)
+	}
+
+	reJson["status"] = util.RECODE_OK
+	reJson["count"] = statisCount.StaticDate
 }
 
-// TODO
 /**
 获取管理员列表
  */
