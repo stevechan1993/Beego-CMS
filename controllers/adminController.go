@@ -22,7 +22,7 @@ const (
 )
 
 /**
-管理员登录
+ * 管理员登录
  */
 func (this *AdminController) AdminLogin() {
 
@@ -63,7 +63,7 @@ func (this *AdminController) AdminLogin() {
 }
 
 /**
-获取管理员信息
+ * 获取管理员信息
  */
 func (this *AdminController) GetAdminInfo() {
 
@@ -107,7 +107,7 @@ func (this *AdminController) GetAdminInfo() {
 }
 
 /**
-退出登录
+ * 退出登录
  */
 func (this *AdminController) SignOut() {
 
@@ -125,7 +125,7 @@ func (this *AdminController) SignOut() {
 }
 
 /**
-获取管理员总数
+ * 获取管理员总数
  */
 func (this *AdminController) GetAdminCount() {
 
@@ -157,7 +157,7 @@ func (this *AdminController) GetAdminCount() {
 
 // TODO
 /**
-返回管理员当日统计结果
+ * 返回管理员当日统计结果
  */
 func (this *AdminController) GetAdminStatis() {
 
@@ -227,7 +227,7 @@ func (this *AdminController) GetAdminStatis() {
 }
 
 /**
-获取管理员列表
+ * 获取管理员列表
  */
 func (this *AdminController) GetAdminList() {
 
@@ -268,7 +268,7 @@ func (this *AdminController) GetAdminList() {
 }
 
 /**
-判断用户是否已经登录过：通过session进行判断
+ * 判断用户是否已经登录过：通过session进行判断
  */
 func (this *AdminController) IsLogin() bool {
 	adminByte := this.GetSession(ADMIN)
