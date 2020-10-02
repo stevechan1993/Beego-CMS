@@ -34,9 +34,21 @@ func init() {
 	util.LogInfo("连接数据库成功")
 
 	// 注册实体模型
-	orm.RegisterModel()
+	orm.RegisterModel(
+		new(Permission),
+		new(City),
+		new(FoodCategory),
+		new(OrderStatus),
+		new(Admin),
+		new(User),
+		new(Food),
+		new(Shop),
+		new(UserOrder),
+		new(SupportService),
+		new(Address))
 
 	// 创建表
+	orm.RunSyncdb("default", false, true)
 }
 
 // 管理员权限等级及级别名称
@@ -142,7 +154,7 @@ type Shop struct {
 	Rating 						int 				`json:"rating"`  							// 综合评分
 	Activities 					[]*SupportService 	`json:"activities" orm:"reverse(many)"` 	// 一个商家对应多家服务
 	UserOrder 					[]*UserOrder 		`json:"user_order" orm:"reverse(many)"` 	// 设置一对多关系： 一个店铺，可能会有多个订单
-	Foods 						[]*Food 			`orm:"reversed(many)"` 						// 设置一对多关系的反向关系
+	Foods 						[]*Food 			`orm:"reverse(many)"` 						// 设置一对多关系的反向关系
 	Dele 						int 				`json:"dele"` 								// 删除标志 1表示已经删除 0表示未删除
 }
 

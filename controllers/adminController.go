@@ -25,7 +25,6 @@ const (
  * 管理员登录
  */
 func (this *AdminController) AdminLogin() {
-
 	util.LogInfo("管理员登录")
 
 	reJson := make(map[string]interface{})
@@ -110,7 +109,6 @@ func (this *AdminController) GetAdminInfo() {
  * 退出登录
  */
 func (this *AdminController) SignOut() {
-
 	util.LogInfo("管理员退出当前账号")
 
 	resp := make(map[string]interface{})
@@ -128,7 +126,6 @@ func (this *AdminController) SignOut() {
  * 获取管理员总数
  */
 func (this *AdminController) GetAdminCount() {
-
 	util.LogInfo("获取管理员总数")
 
 	reJson := make(map[string]interface{})
@@ -160,7 +157,6 @@ func (this *AdminController) GetAdminCount() {
  * 返回管理员当日统计结果
  */
 func (this *AdminController) GetAdminStatis() {
-
 	util.LogInfo("获取管理员某个日期统计结果")
 
 	reJson := make(map[string]interface{})

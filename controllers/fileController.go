@@ -20,10 +20,9 @@ type FileController struct {
  * 更新用户头像
  */
 func (this *FileController) UpdateAdminAvatar() {
-
 	util.LogInfo("更新用户头像")
 
-	resp := make(map[string] interface{})
+	resp := make(map[string]interface{})
 	this.Data["json"] = resp
 	defer this.ServeJSON()
 
@@ -110,10 +109,9 @@ func (this *FileController) UpdateAdminAvatar() {
  * 上传图片
  */
 func (this *FileController) UploadImg() {
-
 	util.LogInfo("上传图片")
 
-	resp := make(map[string] interface{})
+	resp := make(map[string]interface{})
 	this.Data["json"] = resp
 	defer this.ServeJSON()
 
@@ -147,7 +145,7 @@ func (this *FileController) UploadImg() {
 
 	// 切记关闭文件
 	path := "./img/" + head.Filename
-	file.Close()
+	_ = file.Close()
 	err = this.SaveToFile("file", path)
 	if err != nil {
 		resp["status"] = util.RECODE_FAIL
@@ -168,7 +166,7 @@ func (this *FileController) IsLogin() bool {
 	adminByte := this.GetSession(ADMIN)
 	if adminByte != nil {
 		var admin models.Admin
-		json.Unmarshal(adminByte.([]byte), &admin)
+		_ = json.Unmarshal(adminByte.([]byte), &admin)
 		return admin.Id > 0
 	}
 	return false
