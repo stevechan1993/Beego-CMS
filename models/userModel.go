@@ -9,7 +9,7 @@ func (user *User) UserToRespDesc() interface{} {
 		"user_id":		user.Id,
 		"username":		user.UserName,
 		"city":			user.City.CityName,
-		"registe_time":	user.RegisterTime,
+		"register_time":user.RegisterTime,
 		"mobile":		user.Mobile,
 		"is_active": 	user.IsActive,
 		"balance":		user.Balance,
