@@ -34,9 +34,21 @@ func init() {
 	util.LogInfo("连接数据库成功")
 
 	// 注册实体模型
-	orm.RegisterModel()
+	orm.RegisterModel(
+		new(Permission),
+		new(City),
+		new(FoodCategory),
+		new(OrderStatus),
+		new(Admin),
+		new(User),
+		new(Food),
+		new(Shop),
+		new(UserOrder),
+		new(SupportService),
+		new(Address))
 
 	// 创建表
+	orm.RunSyncdb("default", false, true)
 }
 
 // 管理员权限等级及级别名称
