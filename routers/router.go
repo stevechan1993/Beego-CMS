@@ -17,7 +17,10 @@ func init() {
     beego.Router("/admin/all", &controllers.AdminController{}, "GET:GetAdminList")  // 查询所有的用户列表
 
     /*************************************用户模块相关操作****************************************/
-
+    beego.Router("/statis/user/*/count", &controllers.UserController{}, "GET:UserStatisDaily")
+    beego.Router("/v1/users/count", &controllers.UserController{}, "GET:GetUserCount")
+    beego.Router("/v1/users/list", &controllers.UserController{}, "GET:UserList")
+    beego.Router("/v1/user/:username", &controllers.UserController{}, "GET:GetUserInfoByUserName")
     
     /*************************************商家店铺相关操作****************************************/
 
