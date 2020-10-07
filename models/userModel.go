@@ -3,17 +3,17 @@ package models
 /**
  * 将数据库查询出来的结果进行格式组装成request请求需要的json字段格式
  */
-func (user *User) UserToRespDesc() interface{} {
+func (this *User) UserToRespDesc() interface{} {
 	respInfo := map[string] interface{} {
-		"id":			user.Id,
-		"user_id":		user.Id,
-		"username":		user.UserName,
-		"city":			user.City.CityName,
-		"register_time":user.RegisterTime,
-		"mobile":		user.Mobile,
-		"is_active": 	user.IsActive,
-		"balance":		user.Balance,
-		"avatar":		user.Avatar,
+		"id":			this.Id,
+		"user_id":		this.Id,
+		"username":		this.UserName,
+		"city":			this.City.CityName,
+		"register_time":this.RegisterTime,
+		"mobile":		this.Mobile,
+		"is_active": 	this.IsActive,
+		"balance":		this.Balance,
+		"avatar":		this.Avatar,
 	}
 	return respInfo
 }
