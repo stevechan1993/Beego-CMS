@@ -150,7 +150,9 @@ type Shop struct {
 	BusinessLicenseImage 		string 				`json:"business_license_image"` 			// 营业执照
 	CateringServiceLicenseImage string 				`json:"catering_service_license_image"`  	// 餐饮服务许可证
 	Category 					string 				`json:"category"` 							// 店铺类型
+	Status						int					`json:"status"`								// 店铺状态
 	RecentOrderNum 				int 				`json:"recent_order_num"`  					// 最近一个月的销量
+	RatingCount    				int  				`json:"rating_count"`     					// 评分次数
 	Rating 						int 				`json:"rating"`  							// 综合评分
 	Activities 					[]*SupportService 	`json:"activities" orm:"reverse(many)"` 	// 一个商家对应多家服务
 	UserOrder 					[]*UserOrder 		`json:"user_order" orm:"reverse(many)"` 	// 设置一对多关系： 一个店铺，可能会有多个订单
